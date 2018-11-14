@@ -1,0 +1,12 @@
+FROM resin/raspberry-pi2-node:10-slim
+
+RUN [ "cross-build-start" ]
+
+RUN apt-get update
+RUN apt-get install git -y
+RUN apt-get clean
+
+RUN [ "cross-build-end" ]
+
+COPY npg.sh npg.sh
+CMD ./npg.sh
